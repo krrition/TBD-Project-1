@@ -47,7 +47,7 @@ public class Door : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Key") && keyPickedUp)
         {
-            anim.SetTrigger("Closed");
+            anim.SetTrigger("Close");
             locked = true;
         }
     }
