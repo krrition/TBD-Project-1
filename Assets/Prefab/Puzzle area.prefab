@@ -420,9 +420,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   x: 0
   y: 0
+  z: 0
   b: 0
   X: {fileID: 0}
   Y: {fileID: 0}
+  Z: {fileID: 7688656283656156157, guid: bc465aede3fbf184cbf339119ba9ae9a, type: 3}
   B: {fileID: 4341995819166070228}
   numsprites:
   - {fileID: 21300000, guid: 252880008559c4e4c950b0d3481b9b8c, type: 3}

@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class RNG : MonoBehaviour
 {
-    public int x, y, b;
-    public GameObject X, Y, B;
+    public int x, y, z, b;
+    public GameObject X, Y, Z, B;
 
     public Sprite[] numsprites;
     public GameObject plate1, plate2, key;
@@ -17,10 +17,12 @@ public class RNG : MonoBehaviour
     {
         x = Random.Range(1, 9);
         y = Random.Range(1, 9);
+        z = Random.Range(1, 9);
         b = x + y;
         Debug.Log(x +"+"+ y + "=" + b);
         X.GetComponent<SpriteRenderer>().sprite = numsprites[x];
         Y.GetComponent<SpriteRenderer>().sprite = numsprites[y];
+        Z.GetComponent<SpriteRenderer>().sprite = numsprites[z];
         B.GetComponent<TextMeshPro>().text = b.ToString();
         
     }
