@@ -25,7 +25,7 @@ public class Door : MonoBehaviour
 
         if (!locked && distance < 0.5f)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex * 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         if (locked)
