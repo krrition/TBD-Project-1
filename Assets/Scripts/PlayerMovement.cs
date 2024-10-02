@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     private float horizontal;
     public float moveSpeed;
     public Rigidbody2D playerRb;
+    public Animator anim;
 
     public bool isfacingRight = true;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
