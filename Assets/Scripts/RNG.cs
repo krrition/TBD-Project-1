@@ -12,9 +12,12 @@ public class RNG : MonoBehaviour
     public Sprite[] numsprites;
     public GameObject plate1, plate2, key;
 
+    private AudioSource AS;
+
     // Start is called before the first frame update
     void Start()
     {
+        AS = GetComponent<AudioSource>();
         x = Random.Range(1, 9);
         y = Random.Range(1, 9);
         z = Random.Range(1, 9);
@@ -34,6 +37,7 @@ public class RNG : MonoBehaviour
         {
             Debug.Log("Complete");
             key.gameObject.SetActive(true);
+            AS.Play();
             
         }
     }

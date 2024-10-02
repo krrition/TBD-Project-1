@@ -6,6 +6,12 @@ public class TriggerZone : MonoBehaviour
 {
     public bool check;
 
+    private AudioSource AS;
+
+    private void Start()
+    {
+        AS = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,6 +19,7 @@ public class TriggerZone : MonoBehaviour
         {
             Debug.Log("Object has entered the trigger");
             check = true;
+            AS.Play();
         }
     }
     private void OnTriggerStay2D(Collider2D other)
