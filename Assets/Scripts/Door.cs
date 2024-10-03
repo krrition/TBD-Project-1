@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     public bool locked;
     public bool keyPickedUp;
 
+    AudioSource AS;
+
     private Animator anim;
 
     [SerializeField] GameObject player;
@@ -16,6 +18,7 @@ public class Door : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         locked = true;
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,6 +42,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.CompareTag("Key") && keyPickedUp)
         {
             anim.SetTrigger("Open");
+            AS.Play();
             locked = false;
         }
     }
@@ -48,6 +52,7 @@ public class Door : MonoBehaviour
         if (other.gameObject.CompareTag("Key") && keyPickedUp)
         {
             anim.SetTrigger("Close");
+            AS.Play();
             locked = true;
         }
     }
