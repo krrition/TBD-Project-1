@@ -12,7 +12,7 @@ public class RNG : MonoBehaviour
     public Sprite[] numsprites;
     public GameObject plate1, plate2, key;
 
-    private AudioSource AS;
+    AudioSource AS;
 
     // Start is called before the first frame update
     void Start()
@@ -36,8 +36,8 @@ public class RNG : MonoBehaviour
         if (plate1.GetComponent<TriggerZone>().check == true && plate2.GetComponent<TriggerZone>().check == true)
         {
             Debug.Log("Complete");
-            //AS.Play();
             key.gameObject.SetActive(true);
+            AS.Play();
             
         }
     }

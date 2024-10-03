@@ -7,13 +7,15 @@ public class KeyManager : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] GameObject door;
 
+    AudioSource AS;
+
     public bool isPickedUp;
     private Vector2 vel;
     public float smoothTime;
     // Start is called before the first frame update
     void Start()
     {
-
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,6 +33,7 @@ public class KeyManager : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !isPickedUp)
         {
             isPickedUp = true;
+            AS.Play();
             door.GetComponent<Door>().keyPickedUp = true;
         }
     }
