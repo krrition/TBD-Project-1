@@ -21,6 +21,9 @@ public class RNG : MonoBehaviour
         x = Random.Range(1, 9);
         y = Random.Range(1, 9);
         z = Random.Range(1, 9);
+        
+        if (z == x || z==y)
+            z = Random.Range(1, 9);
         b = x + y;
         //Debug.Log(x +"+"+ y + "=" + b);
         X.GetComponent<SpriteRenderer>().sprite = numsprites[x];
@@ -33,6 +36,9 @@ public class RNG : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    
+       
+        
         if (plate1.GetComponent<TriggerZone>().check == true && plate2.GetComponent<TriggerZone>().check == true)
         {
             Debug.Log("Complete");

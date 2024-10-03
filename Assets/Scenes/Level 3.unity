@@ -2334,6 +2334,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740531558}
   m_CullTransparentMesh: 1
+--- !u!1 &867934807 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7688656283656156157, guid: bc465aede3fbf184cbf339119ba9ae9a, type: 3}
+  m_PrefabInstance: {fileID: 1879789145}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &899209727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,6 +3563,10 @@ PrefabInstance:
       propertyPath: Y
       value: 
       objectReference: {fileID: 655765938}
+    - target: {fileID: 1332066388200034665, guid: 68e8a2d559e765b4aae641974bd8f33d, type: 3}
+      propertyPath: Z
+      value: 
+      objectReference: {fileID: 867934807}
     - target: {fileID: 3162462917542122180, guid: 68e8a2d559e765b4aae641974bd8f33d, type: 3}
       propertyPath: door
       value: 
