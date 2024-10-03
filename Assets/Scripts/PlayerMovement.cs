@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,9 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D playerRb;
     public Animator anim;
 
-    public bool isfacingRight = true;
+    public AudioSource AS;
+
+    public bool isfacingRight = false;
 
     private Vector2 moveDirection;
 
@@ -19,33 +22,56 @@ public class PlayerMovement : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        AS = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //Process Inputs
-        ProcessInputs();
-        Flip();
+        //ProcessInputs();
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDirection = new Vector2(moveX, moveY).normalized;
+        if (moveX < 0 && isfacingRight)
+        {
+            Flip();
+        }
+        else if (moveX > 0 && !isfacingRight)
+        {
+            Flip();
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if (playerRb.velocity.x != 0)
+        {
+            if (!AS.isPlaying)
+            {
+                AS.Play();
+            }
+        }
+        else
+        {
+            AS.Stop();
+        }    
     }
 
     void FixedUpdate()
     {
         //Process calculations
         Move();
+        anim.SetFloat("xVelocity", Math.Abs(playerRb.velocity.x));
     }
 
-    void ProcessInputs()
+    /*void ProcessInputs()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
 
-        moveDirection = new Vector2(moveX, moveY).normalized;
-    }
+    }*/
 
     void Move()
     {
@@ -54,12 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Flip()
     {
-        if (isfacingRight && horizontal < 0f || !isfacingRight && horizontal > 0f)
-        {
-            isfacingRight = !isfacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        isfacingRight = !isfacingRight;
+        transform.Rotate(0f, 180f, 0f);
     }
 }

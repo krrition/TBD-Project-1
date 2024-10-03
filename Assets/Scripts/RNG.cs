@@ -22,7 +22,7 @@ public class RNG : MonoBehaviour
         y = Random.Range(1, 9);
         z = Random.Range(1, 9);
         b = x + y;
-        Debug.Log(x +"+"+ y + "=" + b);
+        //Debug.Log(x +"+"+ y + "=" + b);
         X.GetComponent<SpriteRenderer>().sprite = numsprites[x];
         Y.GetComponent<SpriteRenderer>().sprite = numsprites[y];
         Z.GetComponent<SpriteRenderer>().sprite = numsprites[z];
@@ -36,8 +36,8 @@ public class RNG : MonoBehaviour
         if (plate1.GetComponent<TriggerZone>().check == true && plate2.GetComponent<TriggerZone>().check == true)
         {
             Debug.Log("Complete");
+            //AS.Play();
             key.gameObject.SetActive(true);
-            AS.Play();
             
         }
     }
