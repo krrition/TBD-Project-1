@@ -15,9 +15,8 @@ public class TriggerZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("X") || other.gameObject.CompareTag("Y"))
+        if (other.gameObject.CompareTag("X") || other.gameObject.CompareTag("Y")) 
         {
-            Debug.Log("Object has entered the trigger");
             check = true;
             AS.Play();
         }
@@ -26,7 +25,6 @@ public class TriggerZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("X") || other.gameObject.CompareTag("Y"))
         {
-            Debug.Log("Object is in the trigger");
             check = true;
         }
     }
@@ -34,7 +32,6 @@ public class TriggerZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("X") || other.gameObject.CompareTag("Y"))
         {
-            Debug.Log("Object has exited the trigger");
             check = false;
         }
     }
